@@ -1,0 +1,17 @@
+<article class="container well">
+  <div ng-repeat="row in $ctrl.game.board" ng-init="rowIndex = $index">
+    <button class="btn-lg"
+            ng-repeat="cell in row track by $index"
+            ng-class="cell"
+            ng-disabled="$ctrl.isTaken(cell) || $ctrl.game.winner"
+            ng-click="$ctrl.game.move(rowIndex, $index)"
+    >{{ cell }}
+    </button>
+  </div>
+  <p>
+    <span ng-hide="$ctrl.game.winner || $ctrl.game.cat">Current Player: {{ $ctrl.game.currentPlayer }}</span>
+    <span ng-show="$ctrl.game.winner">Player {{ $ctrl.game.previousPlayer }} has won!</span>
+    <span ng-show="$ctrl.game.cat">Cat</span>
+  </p>
+  <button class="btn btn-primary btn-large" ng-click="$ctrl.game.reset()">New Game</button>
+</article>
