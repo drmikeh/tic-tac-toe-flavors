@@ -28,6 +28,9 @@
     }
 
     move(r, c) {
+      if (this.checkForEndOfGame()) {
+        return;  // nothing to do
+      }
       this.board[r][c] = this.currentPlayer;
       this.previousPlayer = this.currentPlayer;
       if (this.checkForEndOfGame() === false) {
