@@ -2,7 +2,7 @@
   <div ng-repeat="row in $ctrl.game.board" ng-init="rowIndex = $index">
     <button class="btn-lg cell"
             ng-repeat="cell in row track by $index"
-            ng-class="cell.value"
+            ng-class="cell"
             ng-disabled="$ctrl.isTaken(cell) || $ctrl.game.winner"
             ng-click="$ctrl.game.move(rowIndex, $index)"
     >{{ cell }}

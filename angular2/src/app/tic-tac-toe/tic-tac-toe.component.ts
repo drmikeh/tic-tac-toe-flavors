@@ -6,7 +6,7 @@ let TicTacToeGame = require('../../../../common/model');
   templateUrl: './tic-tac-toe.component.html',
   styleUrls: ['./tic-tac-toe.component.css']
 })
-export class TicTacToeComponent implements OnInit {
+export class TicTacToeComponent {
 
   game = new TicTacToeGame();
 
@@ -14,11 +14,6 @@ export class TicTacToeComponent implements OnInit {
     console.log('TicTacToeComponent is alive!');
     this.game.reset();
   }
-
-  ngOnInit() {
-    console.log('ngOnInit');
-  }
-
   isTaken(cell) {
     return cell !== '?';
   }
