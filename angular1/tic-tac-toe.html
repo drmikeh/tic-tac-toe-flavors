@@ -1,8 +1,8 @@
 <article class="container well">
   <div ng-repeat="row in $ctrl.game.board" ng-init="rowIndex = $index">
-    <button class="btn-lg"
+    <button class="btn-lg cell"
             ng-repeat="cell in row track by $index"
-            ng-class="cell"
+            ng-class="cell.value"
             ng-disabled="$ctrl.isTaken(cell) || $ctrl.game.winner"
             ng-click="$ctrl.game.move(rowIndex, $index)"
     >{{ cell }}

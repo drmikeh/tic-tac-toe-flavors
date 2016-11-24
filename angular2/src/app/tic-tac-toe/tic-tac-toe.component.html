@@ -1,0 +1,16 @@
+<article class="container well">
+  <div *ngFor="let row of game.board; let r=index">
+    <button *ngFor="let cell of row; let c=index"
+            [class]="cell + ' btn-lg cell'"
+            [disabled]="isTaken(cell) || game.winner"
+            (click)="game.move(r, c)"
+    >{{ cell }}
+    </button>
+  </div>
+  <p>
+    <span *ngIf="!game.winner && !game.cat">Current Player: {{ game.currentPlayer }}</span>
+    <span *ngIf="game.winner">Player {{ game.previousPlayer }} has won!</span>
+    <span *ngIf="game.cat">Cat</span>
+  </p>
+  <button class="btn btn-primary btn-large" (click)="game.reset()">New Game</button>
+</article>
